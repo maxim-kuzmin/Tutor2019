@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Confluent.Kafka" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tutor2019.Core.Base\Tutor2019.Core.Base.csproj" />
+    <ProjectReference Include="..\Tutor2019.Root.Console\Tutor2019.Root.Console.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,4 @@
+.vs
+**/bin
+**/obj
+/net-4x/InfluxDB/packages

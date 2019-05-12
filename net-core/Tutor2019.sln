@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tutor2019.Apps.MessageBrokerKafka", "Tutor2019.Apps.MessageBrokerKafka\Tutor2019.Apps.MessageBrokerKafka.csproj", "{55906853-B34B-4CF9-98CA-0E73D60B2CDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{B99BF644-E1DC-4B85-BB73-D6B5380CA0E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tutor2019.Apps.MessageBrokerRabbitMQ", "Tutor2019.Apps.MessageBrokerRabbitMQ\Tutor2019.Apps.MessageBrokerRabbitMQ.csproj", "{4018912F-3B81-4007-B8DC-36C50253C407}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{1391D4DC-FE36-41B2-A2D6-E28A6FAE5518}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor2019.Core.Base", "Tutor2019.Core.Base\Tutor2019.Core.Base.csproj", "{663F802F-D564-49A2-A36B-1392025D3F20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Root", "Root", "{4346069B-9D0A-4A0E-850F-022845FCF974}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor2019.Root.Console", "Tutor2019.Root.Console\Tutor2019.Root.Console.csproj", "{001A04CB-FACB-45B1-91FA-D36C0C375DCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@@@@", "@@@@", "{C1C54A2B-F31A-42B5-98AD-9370CD8C3201}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55906853-B34B-4CF9-98CA-0E73D60B2CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55906853-B34B-4CF9-98CA-0E73D60B2CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55906853-B34B-4CF9-98CA-0E73D60B2CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55906853-B34B-4CF9-98CA-0E73D60B2CDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4018912F-3B81-4007-B8DC-36C50253C407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4018912F-3B81-4007-B8DC-36C50253C407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4018912F-3B81-4007-B8DC-36C50253C407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4018912F-3B81-4007-B8DC-36C50253C407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{663F802F-D564-49A2-A36B-1392025D3F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{663F802F-D564-49A2-A36B-1392025D3F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{663F802F-D564-49A2-A36B-1392025D3F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{663F802F-D564-49A2-A36B-1392025D3F20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{001A04CB-FACB-45B1-91FA-D36C0C375DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{001A04CB-FACB-45B1-91FA-D36C0C375DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{001A04CB-FACB-45B1-91FA-D36C0C375DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{001A04CB-FACB-45B1-91FA-D36C0C375DCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{55906853-B34B-4CF9-98CA-0E73D60B2CDA} = {B99BF644-E1DC-4B85-BB73-D6B5380CA0E3}
+		{4018912F-3B81-4007-B8DC-36C50253C407} = {B99BF644-E1DC-4B85-BB73-D6B5380CA0E3}
+		{663F802F-D564-49A2-A36B-1392025D3F20} = {1391D4DC-FE36-41B2-A2D6-E28A6FAE5518}
+		{001A04CB-FACB-45B1-91FA-D36C0C375DCB} = {4346069B-9D0A-4A0E-850F-022845FCF974}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DF0F25A-B3F1-4675-AF72-15B89D4586F7}
+	EndGlobalSection
+EndGlobal
