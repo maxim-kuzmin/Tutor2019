@@ -20,6 +20,11 @@ namespace Tutor2019.Root.Console
         #region Properties
 
         /// <summary>
+        /// Аргументы.
+        /// </summary>
+        protected string[] Args { get; private set; }
+
+        /// <summary>
         /// Токен отмены.
         /// </summary>
         protected CancellationToken CancellationToken { get; private set; }
@@ -85,6 +90,8 @@ namespace Tutor2019.Root.Console
         /// <param name="args">Аргументы.</param>
         public void Run(string[] args)
         {
+            Args = args;
+
             OnStarted();
 
             var cts = new CancellationTokenSource();

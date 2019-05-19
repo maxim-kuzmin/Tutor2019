@@ -1,20 +1,24 @@
 ﻿//Author Maxim Kuzmin//makc//
 
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Threading;
-using Tutor2019.Apps.MessageBrokerRabbitMQ.Root.Samples.Sample06.Client;
 using Tutor2019.Core.Base;
 
-namespace Tutor2019.Apps.MessageBrokerRabbitMQ.Root.Samples.Sample06
+namespace Tutor2019.Apps.NotificationSignalR.Root.Samples.Sample01
 {
     /// <summary>
-    /// Корень. Пример 06. Клиент.
+    /// Корень. Пример 01. Сервер.
     /// </summary>
-    public class RootSample06Client : CoreBaseSample
+    public class RootSample01Server : CoreBaseSample
     {
         #region Properties
 
-        public string Message { get; set; }
+        /// <summary>
+        /// Аргументы.
+        /// </summary>
+        public string[] Args { get; set; }
 
         #endregion Properties
 
@@ -25,7 +29,7 @@ namespace Tutor2019.Apps.MessageBrokerRabbitMQ.Root.Samples.Sample06
         /// </summary>
         /// <param name="name">Имя.</param>
         /// <param name="logger">Регистратор.</param>
-        public RootSample06Client(string name, ILogger logger)
+        public RootSample01Server(string name, ILogger logger)
             : base(name, logger)
         {
         }
@@ -37,19 +41,7 @@ namespace Tutor2019.Apps.MessageBrokerRabbitMQ.Root.Samples.Sample06
         /// <inheritdoc/>
         public sealed override void Run(CancellationToken cancellationToken)
         {
-            var n = Message ?? "30";
-
-            var service = new RootSample06ClientService();
-
-            Logger.LogInformation(" [x] Requesting fib({0})", n);
-
-            var response = service.Run(n).Result;
-
-            Logger.LogInformation(" [.] Got '{0}'", response);
-
-            service.Close();
-
-            cancellationToken.WaitHandle.WaitOne();
+            WebHost.CreateDefaultBuilder(Args).UseStartup<Startup>().Build().Run();
         }
 
         #endregion Public methods

@@ -1,4 +1,4 @@
-cd .\bin\Debug\netcoreapp2.2
+﻿cd .\bin\Debug\netcoreapp2.2
 
 ### Sample 01: https://www.rabbitmq.com/tutorials/tutorial-one-dotnet.html
 

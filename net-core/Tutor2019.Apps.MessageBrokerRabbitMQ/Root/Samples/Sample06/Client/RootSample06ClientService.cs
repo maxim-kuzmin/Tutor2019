@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 namespace Tutor2019.Apps.MessageBrokerRabbitMQ.Root.Samples.Sample06.Client
 {
     /// <summary>
-    /// Корень. Пример 06. Клиент. Процедура.
+    /// Корень. Пример 06. Клиент. Сервис.
     /// </summary>
-    public class RootSample06ClientProcedure
+    public class RootSample06ClientService
     {
         #region Properties
 
@@ -34,7 +34,7 @@ namespace Tutor2019.Apps.MessageBrokerRabbitMQ.Root.Samples.Sample06.Client
         /// <summary>
         /// Конструктор.
         /// </summary>
-        public RootSample06ClientProcedure()
+        public RootSample06ClientService()
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
 
@@ -68,12 +68,12 @@ namespace Tutor2019.Apps.MessageBrokerRabbitMQ.Root.Samples.Sample06.Client
         #region Public methods
 
         /// <summary>
-        /// Вызвать асинхронно.
+        /// Запустить.
         /// </summary>
         /// <param name="message">Сообщение.</param>
         /// <param name="cancellationToken">Токен отмены.</param>
         /// <returns>Задача на получение ответного сообщения.</returns>
-        public Task<string> CallAsync(string message, CancellationToken cancellationToken = default)
+        public Task<string> Run(string message, CancellationToken cancellationToken = default)
         {
             IBasicProperties props = Channel.CreateBasicProperties();
 

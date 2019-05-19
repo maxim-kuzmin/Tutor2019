@@ -53,7 +53,7 @@ namespace Tutor2019.Apps.MessageBrokerKafka.Root.Samples.Sample01
             {
                 while (!cancellationToken.IsCancellationRequested)
                 {
-                    var data = Guid.NewGuid().ToString();
+                    var data = Guid.NewGuid().ToString("N");
 
                     var res = service.SendDataToQueue(data, Topic).Result;
 

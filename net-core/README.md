@@ -1,4 +1,4 @@
-### Apache Kafka
+﻿### Apache Kafka
 
 cd Tutor2019.Apps.MessageBrokerKafka
 

@@ -1,10 +1,10 @@
 ﻿//Author Maxim Kuzmin//makc//
 
 using Microsoft.Extensions.CommandLineUtils;
-using Tutor2019.Apps.MessageBrokerKafka.Root.Samples.Sample01;
+using Tutor2019.Apps.NotificationSignalR.Root.Samples.Sample01;
 using Tutor2019.Core.Base;
 
-namespace Tutor2019.Apps.MessageBrokerKafka.Root
+namespace Tutor2019.Apps.NotificationSignalR.Root
 {
     /// <summary>
     /// Корень. Модель.
@@ -12,11 +12,6 @@ namespace Tutor2019.Apps.MessageBrokerKafka.Root
     public class RootModel
     {
         #region Properties
-
-        /// <summary>
-        /// Действие.
-        /// </summary>
-        public CommandArgument Action { get; private set; }
 
         /// <summary>
         /// Пример.
@@ -32,6 +27,11 @@ namespace Tutor2019.Apps.MessageBrokerKafka.Root
         /// Пример 01. Поставщик.
         /// </summary>
         public RootSample01Producer Sample01Producer { get; private set; }
+
+        /// <summary>
+        /// Пример 01. Сервер.
+        /// </summary>
+        public RootSample01Server Sample01Server { get; private set; }
 
         #endregion Properties
 
@@ -50,15 +50,7 @@ namespace Tutor2019.Apps.MessageBrokerKafka.Root
 
             Sample01Producer = sample as RootSample01Producer;
 
-            bool isActionNeeded = Sample01Consumer != null;
-
-            if (isActionNeeded)
-            {
-                Action = commandLine.Argument(
-                    "[action]",
-                    "The action which should be done: 1 - ReceiveByManualAssign, 2 - ReceiveBySubscription."
-                    );
-            }
+            Sample01Server = sample as RootSample01Server;
         }
 
         #endregion Constructors
