@@ -18,6 +18,8 @@ namespace Tutor2019.Apps.NotificationSignalR.Root.Samples.Sample01
     {
         #region Properties
 
+        private HubConnection Connection { get; set; }
+
         #endregion Properties
 
         #region Constructors
@@ -41,49 +43,93 @@ namespace Tutor2019.Apps.NotificationSignalR.Root.Samples.Sample01
         /// <inheritdoc/>
         public sealed override void Run(CancellationToken cancellationToken)
         {
-            var connection = new HubConnectionBuilder()
+            Connection = new HubConnectionBuilder()
                 .WithUrl(Startup.URL_Sample01)
                 .Build();
 
-            connection.Closed += async (error) =>
-            {
-                await Task.Delay(new Random().Next(0, 5) * 1000);
-                await connection.StartAsync();
-            };
+            Connection.Closed += ex => OnConnectionClosed(ex, cancellationToken);
 
-            try
-            {
-                connection.StartAsync().Wait();
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Connection start is failed");
-            }
+            StartConnection(cancellationToken);
 
             while (!cancellationToken.IsCancellationRequested)
             {
                 var methodName = nameof(RootSample01ServerHub.SendMessage);
 
-                var input = new RootSample01ServerJobSendMessageInput
+                if (Connection.State == HubConnectionState.Connected)
                 {
-                    Message = Guid.NewGuid().ToString("N")
-                };
+                    try
+                    {
+                        var input = new RootSample01ServerJobSendMessageInput
+                        {
+                            Message = Guid.NewGuid().ToString("N")
+                        };
 
-                try
-                {
-                    connection.InvokeAsync(methodName, input);
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogError(ex, "SendMessage is failed");
-                }
+                        Connection.InvokeAsync(methodName, input, cancellationToken);
 
-                Logger.LogInformation($"Message '{input.Message}' produced");
+                        Logger.LogInformation($"Message '{input.Message}' produced");
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.LogError(ex, "SendMessage is failed");
+                    }
+                }
 
                 Task.Delay(1000).Wait();
             }
         }
 
         #endregion Public methods
+
+        #region Private methods
+
+        private void StartConnection(CancellationToken cancellationToken)
+        {
+            Logger.LogInformation("Connection is starting");
+
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                try
+                {
+                    Connection.StartAsync(cancellationToken).Wait();
+
+                    Logger.LogInformation("Connection is started");
+
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex, "Connection start is failed");
+                }
+
+                Task.Delay(1000).Wait();
+            }
+        }
+
+        private async Task OnConnectionClosed(Exception error, CancellationToken cancellationToken)
+        {
+            Logger.LogError(error, "Connection is closed");
+
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                await Task.Delay(new Random().Next(0, 5) * 1000);
+
+                Logger.LogInformation("Connection is restarting");
+
+                try
+                {
+                    await Connection.StartAsync(cancellationToken);
+
+                    Logger.LogInformation("Connection is restarted");
+
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Logger.LogError(ex, "Connection restart is failed");
+                }
+            }
+        }
+
+        #endregion Private methods
     }
 }
