@@ -22,7 +22,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@@@@", "@@@@", "{C1C54A2B-F
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor2019.Apps.NotificationSignalR", "Tutor2019.Apps.NotificationSignalR\Tutor2019.Apps.NotificationSignalR.csproj", "{29808742-E338-4BCC-81A6-DE2C8A5E5CB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tutor2019.Apps.NotificationSignalR", "Tutor2019.Apps.NotificationSignalR\Tutor2019.Apps.NotificationSignalR.csproj", "{29808742-E338-4BCC-81A6-DE2C8A5E5CB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor2019.Apps.DockerWebMvc", "Tutor2019.Apps.DockerWebMvc\Tutor2019.Apps.DockerWebMvc.csproj", "{4768DE8F-4A9A-40F2-82DB-35076337BE2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,10 @@ Global
 		{29808742-E338-4BCC-81A6-DE2C8A5E5CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29808742-E338-4BCC-81A6-DE2C8A5E5CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29808742-E338-4BCC-81A6-DE2C8A5E5CB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4768DE8F-4A9A-40F2-82DB-35076337BE2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4768DE8F-4A9A-40F2-82DB-35076337BE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4768DE8F-4A9A-40F2-82DB-35076337BE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4768DE8F-4A9A-40F2-82DB-35076337BE2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{663F802F-D564-49A2-A36B-1392025D3F20} = {1391D4DC-FE36-41B2-A2D6-E28A6FAE5518}
 		{001A04CB-FACB-45B1-91FA-D36C0C375DCB} = {4346069B-9D0A-4A0E-850F-022845FCF974}
 		{29808742-E338-4BCC-81A6-DE2C8A5E5CB0} = {B99BF644-E1DC-4B85-BB73-D6B5380CA0E3}
+		{4768DE8F-4A9A-40F2-82DB-35076337BE2F} = {B99BF644-E1DC-4B85-BB73-D6B5380CA0E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DF0F25A-B3F1-4675-AF72-15B89D4586F7}
