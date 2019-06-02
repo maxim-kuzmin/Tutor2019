@@ -47,7 +47,6 @@ namespace Tutor2019.Apps.NotificationSignalR
         /// </summary>
         /// <param name="app">Приложение.</param>
         /// <param name="env">Окружение.</param>
-        // 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
