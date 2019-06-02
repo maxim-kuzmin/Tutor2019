@@ -76,14 +76,14 @@ namespace Tutor2019.Apps.NotificationSignalR.Root
         {            
             AddHelpOption(commandLine);
 
-            var model = new RootModel(sample, commandLine);
+            var context = new RootContext(sample, commandLine);
 
-            commandLine.OnExecute(() => Execute(model));
+            commandLine.OnExecute(() => Execute(context));
         }
 
-        private int Execute(RootModel model)
+        private int Execute(RootContext context)
         {
-            model.Sample.Run(CancellationToken);
+            context.Sample.Run(CancellationToken);
 
             return 0;
         }

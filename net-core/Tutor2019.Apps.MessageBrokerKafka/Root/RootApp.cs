@@ -76,14 +76,14 @@ namespace Tutor2019.Apps.MessageBrokerKafka.Root
         {            
             AddHelpOption(commandLine);
 
-            var model = new RootModel(sample, commandLine);
+            var context = new RootContext(sample, commandLine);
 
-            commandLine.OnExecute(() => Execute(model));
+            commandLine.OnExecute(() => Execute(context));
         }
 
-        private int Execute(RootModel model)
+        private int Execute(RootContext context)
         {
-            var actionString = model?.Action?.Value;
+            var actionString = context?.Action?.Value;
 
             if (!string.IsNullOrWhiteSpace(actionString))
             {
@@ -92,7 +92,7 @@ namespace Tutor2019.Apps.MessageBrokerKafka.Root
                     actionValue = 0;
                 }
 
-                if (model.Sample01Consumer != null)
+                if (context.Sample01Consumer != null)
                 {
                     RootSample01ConsumerActions action;
 
@@ -105,11 +105,11 @@ namespace Tutor2019.Apps.MessageBrokerKafka.Root
                         throw new Exception($"The action '{actionString}' is unknown");
                     }
 
-                    model.Sample01Consumer.Action = action;
+                    context.Sample01Consumer.Action = action;
                 }
             }
 
-            model.Sample.Run(CancellationToken);
+            context.Sample.Run(CancellationToken);
 
             return 0;
         }

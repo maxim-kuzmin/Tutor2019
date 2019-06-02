@@ -128,53 +128,53 @@ namespace Tutor2019.Apps.MessageBrokerRabbitMQ.Root
         {
             AddHelpOption(commandLine);
 
-            var model = new RootModel(sample, commandLine);
+            var context = new RootContext(sample, commandLine);
 
-            commandLine.OnExecute(() => Execute(model));
+            commandLine.OnExecute(() => Execute(context));
         }
 
-        private int Execute(RootModel model)
+        private int Execute(RootContext context)
         {
-            var message = model.Message?.Value;
+            var message = context.Message?.Value;
 
             if (!string.IsNullOrEmpty(message))
             {
-                if (model.Sample02NewTask != null)
+                if (context.Sample02NewTask != null)
                 {
-                    model.Sample02NewTask.Message = message;
+                    context.Sample02NewTask.Message = message;
                 }
 
-                if (model.Sample03EmitLogFanout != null)
+                if (context.Sample03EmitLogFanout != null)
                 {
-                    model.Sample03EmitLogFanout.Message = message;
+                    context.Sample03EmitLogFanout.Message = message;
                 }
 
-                if (model.Sample04EmitLogDirect != null)
+                if (context.Sample04EmitLogDirect != null)
                 {
-                    model.Sample04EmitLogDirect.Message = message;
+                    context.Sample04EmitLogDirect.Message = message;
                 }
 
-                if (model.Sample05EmitLogTopic != null)
+                if (context.Sample05EmitLogTopic != null)
                 {
-                    model.Sample05EmitLogTopic.Message = message;
+                    context.Sample05EmitLogTopic.Message = message;
                 }
 
-                if (model.Sample06Client != null)
+                if (context.Sample06Client != null)
                 {
-                    model.Sample06Client.Message = message;
+                    context.Sample06Client.Message = message;
                 }
             }
 
-            if (model.Severity != null && model.Severity.HasValue())
+            if (context.Severity != null && context.Severity.HasValue())
             {
-                var severityString = model.Severity.Value();
+                var severityString = context.Severity.Value();
 
                 if (!int.TryParse(severityString, out int severityValue))
                 {
                     severityValue = 0;
                 }
 
-                if (model.Sample04EmitLogDirect != null)
+                if (context.Sample04EmitLogDirect != null)
                 {
                     RootSample04EmitLogDirectSeverities severity;
 
@@ -187,15 +187,15 @@ namespace Tutor2019.Apps.MessageBrokerRabbitMQ.Root
                         throw new Exception($"The severity '{severityString}' is unknown");
                     }
 
-                    model.Sample04EmitLogDirect.Severity = severity;
+                    context.Sample04EmitLogDirect.Severity = severity;
                 }
             }
 
-            if (model.Severities != null && model.Severities.HasValue())
+            if (context.Severities != null && context.Severities.HasValue())
             {
-                var severities = new List<RootSample04EmitLogDirectSeverities>(model.Severities.Values.Count);
+                var severities = new List<RootSample04EmitLogDirectSeverities>(context.Severities.Values.Count);
 
-                foreach (var severityString in model.Severities.Values)
+                foreach (var severityString in context.Severities.Values)
                 {
                     if (!int.TryParse(severityString, out int severityValue))
                     {
@@ -212,38 +212,38 @@ namespace Tutor2019.Apps.MessageBrokerRabbitMQ.Root
                     }
                 }
 
-                if (model.Sample04ReceiveLogsDirect != null)
+                if (context.Sample04ReceiveLogsDirect != null)
                 {
-                    model.Sample04ReceiveLogsDirect.Severities = severities;
+                    context.Sample04ReceiveLogsDirect.Severities = severities;
                 }
             }
 
-            if (model.Route != null && model.Route.HasValue())
+            if (context.Route != null && context.Route.HasValue())
             {
-                var severity = model.Route.Value();
+                var severity = context.Route.Value();
 
-                if (model.Sample05EmitLogTopic != null)
+                if (context.Sample05EmitLogTopic != null)
                 {
-                    model.Sample05EmitLogTopic.Route = severity;
+                    context.Sample05EmitLogTopic.Route = severity;
                 }
             }
 
-            if (model.Routes != null && model.Routes.HasValue())
+            if (context.Routes != null && context.Routes.HasValue())
             {
-                var routes = new List<string>(model.Routes.Values.Count);
+                var routes = new List<string>(context.Routes.Values.Count);
 
-                foreach (var route in model.Routes.Values)
+                foreach (var route in context.Routes.Values)
                 {
                     routes.Add(route);
                 }
 
-                if (model.Sample05ReceiveLogsTopic != null)
+                if (context.Sample05ReceiveLogsTopic != null)
                 {
-                    model.Sample05ReceiveLogsTopic.Routes = routes;
+                    context.Sample05ReceiveLogsTopic.Routes = routes;
                 }
             }
 
-            model.Sample.Run(CancellationToken);
+            context.Sample.Run(CancellationToken);
 
             return 0;
         }

@@ -7,9 +7,9 @@ using Tutor2019.Core.Base;
 namespace Tutor2019.Apps.NotificationSignalR.Root
 {
     /// <summary>
-    /// Корень. Модель.
+    /// Корень. Контекст.
     /// </summary>
-    public class RootModel
+    public class RootContext
     {
         #region Properties
 
@@ -42,7 +42,7 @@ namespace Tutor2019.Apps.NotificationSignalR.Root
         /// </summary>
         /// <param name="sample">Пример.</param>   
         /// <param name="commandLine">Командная строка.</param>
-        public RootModel(CoreBaseSample sample, CommandLineApplication commandLine)
+        public RootContext(CoreBaseSample sample, CommandLineApplication commandLine)
         {
             Sample = sample;
 
