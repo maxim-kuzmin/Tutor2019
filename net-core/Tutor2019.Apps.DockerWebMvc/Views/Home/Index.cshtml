@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Tutor2019.Apps.DockerWebMvc.Root.RootProduct>
+﻿@model IEnumerable<Tutor2019.Apps.DockerWebMvc.Data.Entity.Objects.DataEntityObjectProduct>
 @{
     Layout = null;
 }
@@ -20,7 +20,7 @@
                 @foreach (var p in Model)
                 {
                     <tr>
-                        <td>@p.ProductID</td>
+                        <td>@p.Id</td>
                         <td>@p.Name</td>
                         <td>@p.Category</td>
                         <td>$@p.Price.ToString("F2")</td>

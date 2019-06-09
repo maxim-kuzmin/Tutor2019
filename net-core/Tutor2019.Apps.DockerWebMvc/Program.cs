@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿//Author Maxim Kuzmin//makc//
+
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
+using Tutor2019.Apps.DockerWebMvc.Data.Entity.Db;
+using Tutor2019.Apps.DockerWebMvc.Root.Ext;
 
 namespace Tutor2019.Apps.DockerWebMvc
 {
