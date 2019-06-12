@@ -19,12 +19,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tutor2019.Root.Console", "T
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "@@@@", "@@@@", "{C1C54A2B-F31A-42B5-98AD-9370CD8C3201}"
 	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		Dockerfile = Dockerfile
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tutor2019.Apps.NotificationSignalR", "Tutor2019.Apps.NotificationSignalR\Tutor2019.Apps.NotificationSignalR.csproj", "{29808742-E338-4BCC-81A6-DE2C8A5E5CB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tutor2019.Apps.DockerWebMvc", "Tutor2019.Apps.DockerWebMvc\Tutor2019.Apps.DockerWebMvc.csproj", "{4768DE8F-4A9A-40F2-82DB-35076337BE2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tutor2019.Apps.DockerWebMvc", "Tutor2019.Apps.DockerWebMvc\Tutor2019.Apps.DockerWebMvc.csproj", "{4768DE8F-4A9A-40F2-82DB-35076337BE2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

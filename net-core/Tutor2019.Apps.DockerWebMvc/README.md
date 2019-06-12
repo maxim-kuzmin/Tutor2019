@@ -2,7 +2,7 @@
 
 cd ..
 
-docker build . -t tutor2019appsdockerwebmvc:dev -f ./Tutor2019.Apps.DockerWebMvc/Dockerfile
+docker build . -t tutor2019appsdockerwebmvc:dev -f ./Dockerfile
 
 docker volume create --name productdata
 
@@ -10,13 +10,20 @@ docker run -d --name mysql -v productdata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=
 
 docker network inspect bridge # Узнаём IP-адрес контейнера mysql, чтобы подставить его в следующую команду как значение переменной окружения DBHOST
 
-#docker run -d --name tutor2019appsdockerwebmvc -p 44356:443 -e DBHOST=172.17.0.2 -e ASPNETCORE_URLS=https://+:443;http://+:80 -e ASPNETCORE_HTTPS_PORT=44356 tutor2019appsdockerwebmvc:dev
-#ENV ASPNETCORE_URLS=https://+:443;http://+:80
-#ENV ASPNETCORE_HTTPS_PORT=44356
-
-docker run -d --name tutor2019appsdockerwebmvc -p 44356:443 -e DBHOST=172.17.0.2  tutor2019appsdockerwebmvc:dev
+#docker run -dt --name tutor2019appsdockerwebmvc -p 55080:8080 -p 55443:443 -e "DBHOST=172.17.0.3" -e "ASPNETCORE_HTTPS_PORT=55443" -e "ASPNETCORE_ENVIRONMENT=Development" tutor2019appsdockerwebmvc:dev
+#docker run -dt --name tutor2019appsdockerwebmvc -p 55080:8080 -e "DBHOST=172.17.0.3" -e "ASPNETCORE_ENVIRONMENT=Development" tutor2019appsdockerwebmvc:dev
+docker run -dt --name tutor2019appsdockerwebmvc -p 55080:8080 -e "DBHOST=172.17.0.3" tutor2019appsdockerwebmvc:dev
 
 docker logs -f tutor2019appsdockerwebmvc
+
+http://localhost:55080
+https://localhost:55443
+
+docker stop tutor2019appsdockerwebmvc
+
+docker rm tutor2019appsdockerwebmvc
+
+docker rmi tutor2019appsdockerwebmvc:dev
 
 # Образы
 
