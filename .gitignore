@@ -2,3 +2,4 @@
 **/bin
 **/obj
 /net-4x/InfluxDB/packages
+**/identityserver4_log.txt
