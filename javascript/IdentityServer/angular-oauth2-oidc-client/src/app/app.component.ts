@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
       // The first four are defined by OIDC.
       // Important: Request offline_access to get a refresh token
       // The api scope is a use case specific one
-      scope: 'email offline_access openid profile SrtdbWebApi',
+      scope: 'offline_access openid profile SrtdbWebApi',
 
       showDebugInformation: true,
 
@@ -58,6 +58,9 @@ export class AppComponent implements OnInit {
     this.extOauthService.loadDiscoveryDocumentAndTryLogin()
       .then(resp => {
         console.log('MAKC:loadDiscoveryDocumentAndTryLogin:resp', resp);
+        this.extOauthService.loadUserProfile().then(obj => {
+          console.log('MAKC:loadUserProfile:obj', obj);
+        });
       })
       .catch(error => {
       console.log('MAKC:loadDiscoveryDocumentAndTryLogin:error', error);
