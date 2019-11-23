@@ -58,6 +58,9 @@ export class AppComponent implements OnInit {
     this.extOauthService.loadDiscoveryDocumentAndTryLogin()
       .then(resp => {
         console.log('MAKC:loadDiscoveryDocumentAndTryLogin:resp', resp);
+        this.extOauthService.loadUserProfile().then(obj => {
+          console.log('MAKC:loadUserProfile:obj', obj);
+          });
       })
       .catch(error => {
       console.log('MAKC:loadDiscoveryDocumentAndTryLogin:error', error);
