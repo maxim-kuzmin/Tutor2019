@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
       // The first four are defined by OIDC.
       // Important: Request offline_access to get a refresh token
       // The api scope is a use case specific one
-      scope: 'offline_access openid profile SrtdbWebApi',
+      scope: 'offline_access openid SrtdbWebApi',
 
       showDebugInformation: true,
 
